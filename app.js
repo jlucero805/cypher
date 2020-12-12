@@ -13,6 +13,8 @@ var index1;
 var changeT = 'f';
 var indexT1;
 
+var output = document.getElementById("output").innerHTML;
+
 var singleKey = document.getElementById('singleKey').value;
 //dom variables
 var change1 = document.getElementById("change1").value;
@@ -128,6 +130,7 @@ function finalResult() {
         testAns += tChars[tempInd1];
     };
     console.log(testAns)
+    document.getElementById('output').innerHTML = 'output: ' + testAns;
 };
 
 function finalResult2() {
@@ -139,6 +142,7 @@ function finalResult2() {
         testAns += tChars[tempInd1];
     };
     console.log(testAns)
+    document.getElementById('output').innerHTML = 'output: ' + testAns;
 };
 
 // main{
