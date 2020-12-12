@@ -13,7 +13,7 @@ var index1;
 var changeT = 'f';
 var indexT1;
 
-
+var singleKey = document.getElementById('singleKey').value;
 //dom variables
 var change1 = document.getElementById("change1").value;
 var change2 = document.getElementById("change1").value;
@@ -35,18 +35,19 @@ var intext = document.getElementById("intext").value;
 var setKey = document.getElementById('setKey').innerHTML;
 console.log(tChars == chars)
 function activate() {
-    
-    change1 = document.getElementById("change1").value;
-    change2 = document.getElementById("change2").value;
-    change3 = document.getElementById("change3").value;
-    change4 = document.getElementById("change4").value;
-    change5 = document.getElementById("change5").value;
+    singleKey = document.getElementById('singleKey').value;
 
-    changeT1 = document.getElementById("changeT1").value;
-    changeT2 = document.getElementById("changeT2").value;
-    changeT3 = document.getElementById("changeT3").value;
-    changeT4 = document.getElementById("changeT4").value;
-    changeT5 = document.getElementById("changeT5").value;
+    change1 = singleKey[0];
+    change2 = singleKey[1];
+    change3 = singleKey[2];
+    change4 = singleKey[3];
+    change5 = singleKey[4];
+
+    changeT1 = singleKey[6];
+    changeT2 = singleKey[7];
+    changeT3 = singleKey[8];
+    changeT4 = singleKey[9];
+    changeT5 = singleKey[10];
 
     number = document.getElementById('number').value;
     if (number > 26) {
