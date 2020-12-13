@@ -1,10 +1,12 @@
-var chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?", '.', ','];
-var tChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?", '.', ','];
+var chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?",'.',',','_',' ','~','`','-','+',"'", '"','<','>'];
+var tChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?",'.',',','_',' ','~','`','-','+',"'", '"','<','>'];
+var tempChars = [];
+var multChars = [];
+var numArry = [];
 
-console.log(tChars);
+var lengthChars = chars.length;
+console.log(lengthChars)
 
-var testValue = "jason";
-var testValue2 = "lptxy";
 var testAns = "";
 
 
@@ -17,26 +19,40 @@ var output = document.getElementById("output").innerHTML;
 
 var singleKey = document.getElementById('singleKey').value;
 //dom variables
-var change1 = document.getElementById("change1").value;
-var change2 = document.getElementById("change1").value;
-var change3 = document.getElementById("change1").value;
-var change4 = document.getElementById("change1").value;
-var change5 = document.getElementById("change1").value;
+var change1 = '';
+var change2 = '';
+var change3 = '';
+var change4 = '';
+var change5 = '';
 
-var changeT1 = document.getElementById("change1").value;
-var changeT2 = document.getElementById("change1").value;
-var changeT3 = document.getElementById("change1").value;
-var changeT4 = document.getElementById("change1").value;
-var changeT5 = document.getElementById("change1").value;
+var changeT1 = '';
+var changeT2 = '';
+var changeT3 = '';
+var changeT4 = '';
+var changeT5 = '';
 
-var number = document.getElementById("number").value;
-
+// var number = document.getElementById("number").value;
+var num1;
+var num2;
 
 var intext = document.getElementById("intext").value;
 
 var setKey = document.getElementById('setKey').innerHTML;
-console.log(tChars == chars)
 function activate() {
+    tChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?",'.',',','_',' ','~','`','-','+',"'", '"','<','>'];
+
+    change1 = '';
+    change2 = '';
+    change3 = '';
+    change4 = '';
+    change5 = '';
+
+    changeT1 = '';
+    changeT2 = '';
+    changeT3 = '';
+    changeT4 = '';
+    changeT5 = '';
+
     singleKey = document.getElementById('singleKey').value;
 
     change1 = singleKey[0];
@@ -51,23 +67,33 @@ function activate() {
     changeT4 = singleKey[9];
     changeT5 = singleKey[10];
 
-    number = document.getElementById('number').value;
-    if (number > 26) {
-        number %= 26;
+    num1 = Number(document.getElementById('num1').value);
+    if (num1 >= 83) {
+        num1 = 82;
     };
-    document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + number;
-    //"key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5
-    console.log('works')
+    console.log(num1)
+    num2 = Number(document.getElementById('num2').value);
+
+
+    document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + num1 + " " + num2;
 
     intakeLetters(change1, changeT1);
     intakeLetters(change2, changeT2);
     intakeLetters(change3, changeT3);
     intakeLetters(change4, changeT4);
     intakeLetters(change5, changeT5);
+    console.log(chars)
+    // shiftFor();
+    multiplyFor();
+    
+    tempChars = multChars;
+    console.log(tempChars)
+    tChars = multChars;
+    console.log(tChars)
+    console.log(chars)
+};
 
-    shiftFor();
-    console.log(tChars);
-   
+function removeSetKeyInput(){
     
 };
 
@@ -75,43 +101,38 @@ function encypher() {
     intext = document.getElementById("intext").value;
 
     finalResult();
+    document.getElementById("intext").value = '';
 };
 
 function decypher() {
     intext = document.getElementById("intext").value;
-    shiftBack();
-    intakeLetters(change1, changeT1);
-    intakeLetters(change2, changeT2);
-    intakeLetters(change3, changeT3);
-    intakeLetters(change4, changeT4);
-    intakeLetters(change5, changeT5);
-    shiftBack();
-    intakeLetters(change1, changeT1);
-    intakeLetters(change2, changeT2);
-    intakeLetters(change3, changeT3);
-    intakeLetters(change4, changeT4);
-    intakeLetters(change5, changeT5);
+    
+    tChars = tempChars;
+    
     finalResult2();
+    document.getElementById("intext").value = '';
 
 };
 
-function shiftFor() {
-    for (let i=0; i<number; i++) {
-        var tempElement = tChars[tChars.length - 1];
-        tChars.pop();
-        tChars.unshift(tempElement);
-        console.log(tChars)
+
+//teststart
+
+function multiplyFor() {
+    numArry = [];
+    console.log(num1)
+    console.log(num2)
+    for (let i = 0; i < lengthChars; i++) {
+        var x = (i * num1) + num2;
+        numArry.push(x % lengthChars);
     };
+    console.log(numArry)
+    for (x of numArry) {
+        multChars.push(chars[x]);
+    };
+    console.log(multChars)
 };
 
-function shiftBack() {
-    for (let i=0; i<number; i++) {
-        var tempElement = tChars[0];
-        tChars.shift();
-        tChars.push(tempElement);
-        console.log(tChars)
-    };
-};
+//testend
 
 function intakeLetters(x, y) {
     index1 = chars.indexOf(x);
@@ -121,6 +142,7 @@ function intakeLetters(x, y) {
     tChars[indexT1] = tempValue;
 };
 
+
 function finalResult() {
     var tempLength = intext.length;
     testAns = "";
@@ -129,7 +151,6 @@ function finalResult() {
         var tempInd1 = chars.indexOf(intext[i]);
         testAns += tChars[tempInd1];
     };
-    console.log(testAns)
     document.getElementById('output').innerHTML = 'output: ' + testAns;
 };
 
@@ -138,10 +159,9 @@ function finalResult2() {
     testAns = "";
     for (let i=0; i<tempLength; i++) {
         
-        var tempInd1 = chars.indexOf(intext[i]);
-        testAns += tChars[tempInd1];
+        var tempInd1 = tChars.indexOf(intext[i]);
+        testAns += chars[tempInd1];
     };
-    console.log(testAns)
     document.getElementById('output').innerHTML = 'output: ' + testAns;
 };
 

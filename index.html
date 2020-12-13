@@ -7,26 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Enigma 0.5</h1>
     <div>
-        <div>
-            <input id="change1" type="text" maxlength="1">
-            <input id="change2" type="text" maxlength="1">
-            <input id="change3" type="text" maxlength="1">
-            <input id="change4" type="text" maxlength="1">
-            <input id="change5" type="text" maxlength="1">
-        </div>
-        <div>
-            <input id="changeT1" type="text" maxlength="1">
-            <input id="changeT2" type="text" maxlength="1">
-            <input id="changeT3" type="text" maxlength="1">
-            <input id="changeT4" type="text" maxlength="1">
-            <input id="changeT5" type="text" maxlength="1">
-        </div>
         <div>
             <input id="singleKey" type="text" maxlength="11">
         </div>
     
-        <input id="number" type="text" maxlength="2"><br>
+        <!--<input id="number" type="text" maxlength="2"><br>-->
+        <input id="num1" type="text" maxlength="2">
+        <input id="num2" type="text" maxlength="3"><br>
         <button onclick="activate()">Set Key</button>
         <p id="setKey" >key: </p>
         <input id="intext" type="text"><br>
@@ -34,7 +23,7 @@
         <button onclick="decypher()">decypher</button>
     </div>
     <div>
-        <p id="output" >output: </p>
+        <p id="output" >output: <br>n/a</p>
     </div>
     <script src="app.js"></script>
 </body>
