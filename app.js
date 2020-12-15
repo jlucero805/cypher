@@ -151,7 +151,7 @@ function finalResult() {
         var tempInd1 = chars.indexOf(intext[i]);
         testAns += tChars[tempInd1];
     };
-    document.getElementById('output').innerHTML = 'output: ' + testAns;
+    document.getElementById('output').innerHTML = testAns;
 };
 
 function finalResult2() {
@@ -162,7 +162,46 @@ function finalResult2() {
         var tempInd1 = tChars.indexOf(intext[i]);
         testAns += chars[tempInd1];
     };
-    document.getElementById('output').innerHTML = 'output: ' + testAns;
+    document.getElementById('output').innerHTML = testAns;
+};
+
+function instructionTab() {
+    document.getElementById("cypherTab").style.backgroundColor = "white";
+    document.getElementById("instructions").blur();
+    document.getElementById("instructions").style.backgroundColor = "rgb(255, 210, 210)"
+    document.getElementById("outputContainer").style.display = "none";
+    document.getElementById("singleKey").style.display = "none";
+    document.getElementById("num1").style.display = "none";
+    document.getElementById("num2").style.display = "none";
+    document.getElementById("keySetterButton").style.display = "none";
+    document.getElementById("setKey").style.display = "none";
+    document.getElementById("intext").style.display = "none";
+    document.getElementById("cyph").style.display = "none";
+    document.getElementById("decyph").style.display = "none";
+    document.getElementById("wrapper").style.display = "none";
+    document.getElementById("instructionBody").style.display = "initial";
+    document.getElementById("instructionWriting").style.display = "initial";
+
+};
+
+function mainTab() {
+    document.getElementById("cypherTab").style.backgroundColor = "rgb(255, 210, 210)";
+    document.getElementById("cypherTab").blur();
+    document.getElementById("instructions").style.backgroundColor = "white";
+    document.getElementById("outputContainer").style.display = "initial";
+    document.getElementById("singleKey").style.display = "initial";
+    document.getElementById("num1").style.display = "initial";
+    document.getElementById("num2").style.display = "initial";
+    document.getElementById("keySetterButton").style.display = "initial";
+    document.getElementById("setKey").style.display = "initial";
+    document.getElementById("intext").style.display = "initial";
+    document.getElementById("cyph").style.display = "initial";
+    document.getElementById("decyph").style.display = "initial";
+    document.getElementById("wrapper").style.display = "initial";
+    document.getElementById("staticOutput").style.display = "initial";
+    document.getElementById("outputContainer").style.display = "inline-block";
+    document.getElementById("instructionBody").style.display = "none";
+
 };
 
 // main{

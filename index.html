@@ -7,23 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Enigma 0.5</h1>
-    <div>
-        <div>
-            <input id="singleKey" type="text" maxlength="11">
+    <div id="main">
+        <h1 id="title">Enigma 0.5</h1>
+        <button id="instructions" onclick="instructionTab()" >Info</button>
+        <button id="cypherTab" onclick="mainTab()">Main</button>
+        <div id="instructionBody"> 
+            <p id="instructionWriting">Instructions:<br>This cypher requires three values:<br><br>-1st: 2 sets of 5 unique characters separated by a space<br>-2nd: 2 digit number<br>-3rd: 3 digit number<br><br>The first value could include most symbols, all numbers, and any letter, upper or lower case. <br><br>Example:<br>abcde fghij 11 111</p>
         </div>
-    
-        <!--<input id="number" type="text" maxlength="2"><br>-->
-        <input id="num1" type="text" maxlength="2">
-        <input id="num2" type="text" maxlength="3"><br>
-        <button onclick="activate()">Set Key</button>
-        <p id="setKey" >key: </p>
-        <input id="intext" type="text"><br>
-        <button onclick="encypher()">encypher</button>
-        <button onclick="decypher()">decypher</button>
-    </div>
-    <div>
-        <p id="output" >output: <br>n/a</p>
+        <div>
+            
+            <input id="singleKey" type="text" maxlength="11">
+            
+        
+            <!--<input id="number" type="text" maxlength="2"><br>-->
+            <input id="num1" type="text" maxlength="2">
+            <input id="num2" type="text" maxlength="3"><br>
+            <button id="keySetterButton" onclick="activate()">Set Key</button>
+            <p id="setKey" >key: </p>
+            <input id="intext" type="text"><br>
+            <button id="cyph" onclick="encypher()">encypher</button>
+            <button id="decyph" onclick="decypher()">decypher</button>
+        </div>
+        <div id="wrapper" style="word-wrap: break-word;">
+            <p id="staticOutput">output: </p><br>
+            <div id="outputContainer"><p id="output" >N/A</p></div>
+            
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
