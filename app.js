@@ -4,6 +4,7 @@ var tempChars = [];
 var multChars = [];
 var numArry = [];
 
+var validKey = false;
 var keyBool = false;
 
 var lengthChars = chars.length;
@@ -72,45 +73,48 @@ function activate() {
         if (keyBool) {
             
             document.getElementById("setKey").innerHTML = "key: Invalid Key";
+            validKey = false;
         } else {
+            
+            validKey = true;
             change1 = singleKey[0];
-        change2 = singleKey[1];
-        change3 = singleKey[2];
-        change4 = singleKey[3];
-        change5 = singleKey[4];
+            change2 = singleKey[1];
+            change3 = singleKey[2];
+            change4 = singleKey[3];
+            change5 = singleKey[4];
 
-        changeT1 = singleKey[6];
-        changeT2 = singleKey[7];
-        changeT3 = singleKey[8];
-        changeT4 = singleKey[9];
-        changeT5 = singleKey[10];
+            changeT1 = singleKey[6];
+            changeT2 = singleKey[7];
+            changeT3 = singleKey[8];
+            changeT4 = singleKey[9];
+            changeT5 = singleKey[10];
 
-        num1 = Number(document.getElementById('num1').value);
-        if (num1 >= 83) {
-            num1 = 82;
-        };
-        console.log(num1)
-        num2 = Number(document.getElementById('num2').value);
+            num1 = Number(document.getElementById('num1').value);
+            if (num1 >= 83) {
+                num1 = 82;
+            };
+            console.log(num1)
+            num2 = Number(document.getElementById('num2').value);
 
 
-        document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + num1 + " " + num2;
+            document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + num1 + " " + num2;
 
-        intakeLetters(change1, changeT1);
-        intakeLetters(change2, changeT2);
-        intakeLetters(change3, changeT3);
-        intakeLetters(change4, changeT4);
-        intakeLetters(change5, changeT5);
-        console.log(chars)
-        // shiftFor();
-        multiplyFor();
-        
-        tempChars = multChars;
-        console.log(tempChars)
-        tChars = multChars;
-        console.log(tChars)
-        console.log(chars)
-        document.getElementById("keySetterButton").blur();
-        };
+            intakeLetters(change1, changeT1);
+            intakeLetters(change2, changeT2);
+            intakeLetters(change3, changeT3);
+            intakeLetters(change4, changeT4);
+            intakeLetters(change5, changeT5);
+            console.log(chars)
+            // shiftFor();
+            multiplyFor();
+            
+            tempChars = multChars;
+            console.log(tempChars)
+            tChars = multChars;
+            console.log(tChars)
+            console.log(chars)
+            document.getElementById("keySetterButton").blur();
+            };
 
 
 
@@ -119,6 +123,7 @@ function activate() {
         
     } else {
         document.getElementById("setKey").innerHTML = "key: Invalid Key";
+        validKey = false;
     };
     
     
@@ -130,21 +135,29 @@ function removeSetKeyInput(){
 };
 
 function encypher() {
-    intext = document.getElementById("intext").value;
-    document.getElementById("cyph").blur();
-    finalResult();
-    document.getElementById("intext").value = '';
+    if (validKey) {
+        intext = document.getElementById("intext").value;
+        document.getElementById("cyph").blur();
+        finalResult();
+        document.getElementById("intext").value = '';
+    } else {
+        document.getElementById("textAr").value = "enter valid key";
+    };
+    
     
 };
 
 function decypher() {
-    intext = document.getElementById("intext").value;
-    
-    tChars = tempChars;
-    
-    finalResult2();
-    document.getElementById("intext").value = '';
-    document.getElementById("decyph").blur();
+    if (validKey) {
+        intext = document.getElementById("intext").value;
+        tChars = tempChars;
+        finalResult2();
+        document.getElementById("intext").value = '';
+        document.getElementById("decyph").blur();
+    } else {
+        document.getElementById("textAr").value = "enter valid key";
+    };
+        
 };
 
 
