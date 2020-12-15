@@ -4,6 +4,8 @@ var tempChars = [];
 var multChars = [];
 var numArry = [];
 
+var keyBool = false;
+
 var lengthChars = chars.length;
 console.log(lengthChars)
 
@@ -39,58 +41,88 @@ var intext = document.getElementById("intext").value;
 
 var setKey = document.getElementById('setKey').innerHTML;
 function activate() {
-    tChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?",'.',',','_',' ','~','`','-','+',"'", '"',';',':'];
+    var keyLength = document.getElementById("singleKey").value.length;
+    var num1Length = document.getElementById("num1").value.length;
+    var num2Length = document.getElementById("num2").value.length
 
-    change1 = '';
-    change2 = '';
-    change3 = '';
-    change4 = '';
-    change5 = '';
+    if (keyLength == 11 && num1Length >=1 && num2Length >= 1) {
+        tChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?",'.',',','_',' ','~','`','-','+',"'", '"',';',':'];
 
-    changeT1 = '';
-    changeT2 = '';
-    changeT3 = '';
-    changeT4 = '';
-    changeT5 = '';
+        change1 = '';
+        change2 = '';
+        change3 = '';
+        change4 = '';
+        change5 = '';
 
-    singleKey = document.getElementById('singleKey').value;
+        changeT1 = '';
+        changeT2 = '';
+        changeT3 = '';
+        changeT4 = '';
+        changeT5 = '';
 
-    change1 = singleKey[0];
-    change2 = singleKey[1];
-    change3 = singleKey[2];
-    change4 = singleKey[3];
-    change5 = singleKey[4];
+        singleKey = document.getElementById('singleKey').value;
+        keyBool = false;
+        for (let i = 0; i<11; i++) {
+            for (let j = i + 1; j<11; j++) {
+                if (singleKey[i] == singleKey[j]) {
+                    keyBool = true;
+                };
+            };
+        };
+        if (keyBool) {
+            
+            document.getElementById("setKey").innerHTML = "key: Invalid Key";
+        } else {
+            change1 = singleKey[0];
+        change2 = singleKey[1];
+        change3 = singleKey[2];
+        change4 = singleKey[3];
+        change5 = singleKey[4];
 
-    changeT1 = singleKey[6];
-    changeT2 = singleKey[7];
-    changeT3 = singleKey[8];
-    changeT4 = singleKey[9];
-    changeT5 = singleKey[10];
+        changeT1 = singleKey[6];
+        changeT2 = singleKey[7];
+        changeT3 = singleKey[8];
+        changeT4 = singleKey[9];
+        changeT5 = singleKey[10];
 
-    num1 = Number(document.getElementById('num1').value);
-    if (num1 >= 83) {
-        num1 = 82;
+        num1 = Number(document.getElementById('num1').value);
+        if (num1 >= 83) {
+            num1 = 82;
+        };
+        console.log(num1)
+        num2 = Number(document.getElementById('num2').value);
+
+
+        document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + num1 + " " + num2;
+
+        intakeLetters(change1, changeT1);
+        intakeLetters(change2, changeT2);
+        intakeLetters(change3, changeT3);
+        intakeLetters(change4, changeT4);
+        intakeLetters(change5, changeT5);
+        console.log(chars)
+        // shiftFor();
+        multiplyFor();
+        
+        tempChars = multChars;
+        console.log(tempChars)
+        tChars = multChars;
+        console.log(tChars)
+        console.log(chars)
+        document.getElementById("keySetterButton").blur();
+        };
+
+
+
+        
+
+        
+    } else {
+        document.getElementById("setKey").innerHTML = "key: Invalid Key";
     };
-    console.log(num1)
-    num2 = Number(document.getElementById('num2').value);
-
-
-    document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + num1 + " " + num2;
-
-    intakeLetters(change1, changeT1);
-    intakeLetters(change2, changeT2);
-    intakeLetters(change3, changeT3);
-    intakeLetters(change4, changeT4);
-    intakeLetters(change5, changeT5);
-    console.log(chars)
-    // shiftFor();
-    multiplyFor();
     
-    tempChars = multChars;
-    console.log(tempChars)
-    tChars = multChars;
-    console.log(tChars)
-    console.log(chars)
+    
+    
 };
 
 function removeSetKeyInput(){
@@ -99,9 +131,10 @@ function removeSetKeyInput(){
 
 function encypher() {
     intext = document.getElementById("intext").value;
-
+    document.getElementById("cyph").blur();
     finalResult();
     document.getElementById("intext").value = '';
+    
 };
 
 function decypher() {
@@ -111,8 +144,10 @@ function decypher() {
     
     finalResult2();
     document.getElementById("intext").value = '';
-
+    document.getElementById("decyph").blur();
 };
+
+
 
 
 //teststart
@@ -151,7 +186,7 @@ function finalResult() {
         var tempInd1 = chars.indexOf(intext[i]);
         testAns += tChars[tempInd1];
     };
-    document.getElementById('output').innerHTML = testAns;
+    document.getElementById('textAr').value = testAns;
 };
 
 function finalResult2() {
@@ -162,13 +197,13 @@ function finalResult2() {
         var tempInd1 = tChars.indexOf(intext[i]);
         testAns += chars[tempInd1];
     };
-    document.getElementById('output').innerHTML = testAns;
+    document.getElementById('textAr').value = testAns;
 };
 
 function instructionTab() {
     document.getElementById("cypherTab").style.backgroundColor = "white";
     document.getElementById("instructions").blur();
-    document.getElementById("instructions").style.backgroundColor = "rgb(255, 210, 210)"
+    document.getElementById("instructions").style.backgroundColor = "rgb(255, 210, 210)";
     document.getElementById("outputContainer").style.display = "none";
     document.getElementById("singleKey").style.display = "none";
     document.getElementById("num1").style.display = "none";
@@ -181,6 +216,9 @@ function instructionTab() {
     document.getElementById("wrapper").style.display = "none";
     document.getElementById("instructionBody").style.display = "initial";
     document.getElementById("instructionWriting").style.display = "initial";
+    document.getElementById("textAr").style.display = "none";
+    document.getElementById("staticOutput").style.display = "none";
+    document.getElementById("textAreaButton").style.display = "none";
 
 };
 
@@ -197,13 +235,18 @@ function mainTab() {
     document.getElementById("intext").style.display = "initial";
     document.getElementById("cyph").style.display = "initial";
     document.getElementById("decyph").style.display = "initial";
-    document.getElementById("wrapper").style.display = "initial";
+    document.getElementById("wrapper").style.display = "none";
     document.getElementById("staticOutput").style.display = "initial";
     document.getElementById("outputContainer").style.display = "inline-block";
     document.getElementById("instructionBody").style.display = "none";
-
+    document.getElementById("textAr").style.display = "initial";
+    document.getElementById("textAreaButton").style.display = "initial";
 };
 
+function selectAllText() {
+    document.getElementById("textAr").select();
+    document.getElementById("textAreaButton").blur();
+};
 // main{
     
 

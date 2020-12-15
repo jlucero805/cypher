@@ -28,11 +28,13 @@
             <button id="cyph" onclick="encypher()">encypher</button>
             <button id="decyph" onclick="decypher()">decypher</button>
         </div>
-        <div id="wrapper" style="word-wrap: break-word;">
+        <p id="staticOutput">output: </p>
+        <div id="wrapper" style="word-wrap: break-word; display: none;">
             <p id="staticOutput">output: </p><br>
             <div id="outputContainer"><p id="output" >N/A</p></div>
-            
         </div>
+        <textarea readonly id="textAr"></textarea>
+        <button id="textAreaButton" onclick="selectAllText()">Select All</button>
     </div>
     <script src="app.js"></script>
 </body>
