@@ -4,6 +4,8 @@ var tempChars = [];
 var multChars = [];
 var numArry = [];
 
+var randomizeArray = [];
+
 var validKey = false;
 var keyBool = false;
 
@@ -124,15 +126,94 @@ function activate() {
     } else {
         document.getElementById("setKey").innerHTML = "key: Invalid Key";
         validKey = false;
+        document.getElementById("keySetterButton").blur();
     };
     
     
     
 };
 
-function removeSetKeyInput(){
+function randomize() {
+    singleKey = "";
+    num1 = null;
+    num2 = null;
+    var tempArray = [];
+    for (let i=0; i<83; i++) {
+        tempArray.push(i);
+    };
+    randomizeArray = [];
+    for (let i=0; i<11; i++) {
+        var temp = Math.floor(Math.random() * (83 - i) );
+        randomizeArray.push(tempArray[temp]);
+        tempArray.splice(temp, 1);
+
+    };
     
+    tChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","?",'.',',','_',' ','~','`','-','+',"'", '"',';',':'];
+
+    change1 = '';
+    change2 = '';
+    change3 = '';
+    change4 = '';
+    change5 = '';
+
+    changeT1 = '';
+    changeT2 = '';
+    changeT3 = '';
+    changeT4 = '';
+    changeT5 = '';
+
+    for (let i=0; i<5; i++) {
+        singleKey += chars[randomizeArray[i]];
+    };
+    singleKey += ' ';
+    for (let i=6; i<11; i++) {
+        singleKey += chars[randomizeArray[i]];
+    };
+    document.getElementById('singleKey').value = singleKey;
+
+    num1 = Math.floor(Math.random() * (83 - 1) + 1 );
+    document.getElementById('num1').value = num1;
+    num2 = Math.floor(Math.random() * (999 - 1) + 1);
+    document.getElementById('num2').value = num2;
+    console.log(singleKey);
+    validKey = true;
+    change1 = singleKey[0];
+    change2 = singleKey[1];
+    change3 = singleKey[2];
+    change4 = singleKey[3];
+    change5 = singleKey[4];
+
+    changeT1 = singleKey[6];
+    changeT2 = singleKey[7];
+    changeT3 = singleKey[8];
+    changeT4 = singleKey[9];
+    changeT5 = singleKey[10];
+
+
+    document.getElementById('setKey').innerHTML = "key: " + change1 + change2 + change3 + change4 + change5 + " " + changeT1 + changeT2 + changeT3 + changeT4 + changeT5 + " " + num1 + " " + num2;
+
+    intakeLetters(change1, changeT1);
+    intakeLetters(change2, changeT2);
+    intakeLetters(change3, changeT3);
+    intakeLetters(change4, changeT4);
+    intakeLetters(change5, changeT5);
+    console.log(chars)
+    // shiftFor();
+    multiplyFor();
+    
+    tempChars = multChars;
+    console.log(tempChars)
+    tChars = multChars;
+    console.log(tChars)
+    console.log(chars)
+    document.getElementById("keySetterButton").blur();
+
 };
+
+
+
+
 
 function encypher() {
     if (validKey) {
@@ -142,6 +223,7 @@ function encypher() {
         document.getElementById("intext").value = '';
     } else {
         document.getElementById("textAr").value = "enter valid key";
+        document.getElementById("cyph").blur();
     };
     
     
@@ -156,6 +238,7 @@ function decypher() {
         document.getElementById("decyph").blur();
     } else {
         document.getElementById("textAr").value = "enter valid key";
+        document.getElementById("decyph").blur();
     };
         
 };
@@ -167,6 +250,7 @@ function decypher() {
 
 function multiplyFor() {
     numArry = [];
+    multChars = [];
     console.log(num1)
     console.log(num2)
     for (let i = 0; i < lengthChars; i++) {

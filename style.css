@@ -220,3 +220,11 @@ textarea {
     left: 230.5px;
     
 }
+#randGen {
+    position: absolute;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    top: 80px;
+    left: 235px;
+}
