@@ -207,7 +207,7 @@ function randomize() {
     tChars = multChars;
     console.log(tChars)
     console.log(chars)
-    document.getElementById("keySetterButton").blur();
+    document.getElementById("textAreaButton").blur();
 
 };
 
