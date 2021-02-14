@@ -3,3 +3,6 @@ This is an old project, but I like the function. I am currently working on refac
 It is also very likely that I will switch the code to TypeScript. 
 
 I have an RSA option in the works, and am just working on optimizations for encryption speed, but soon enough will add it as an option. 
+
+You can run this program at:
+https://cyphercypher.netlify.app/
